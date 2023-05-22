@@ -1,4 +1,5 @@
 <?php 
+include_once __DIR__ . '/Author.php';
 
 class Movie {
     
@@ -9,7 +10,7 @@ class Movie {
     public $minAge;
 
 
-    function __construct($_title, $_category, $_duration,$_author, $_age){
+    function __construct(string $_title, string $_category, int $_duration, int $_age, Author $_author = null){
         $this->title = $_title;
         $this->category = $_category;
         $this->duration = $_duration;
@@ -18,7 +19,7 @@ class Movie {
     }
 
     function adultsOnly($_int){
-        return $_int > 18 ? $this->minAge = 'Film non adatto ai minoiri' : $this->minAge = 'Film per tutta la famiglia';
+        return $_int > 18 ? $this->minAge = 'Film non adatto ai minori' : $this->minAge = 'Film per tutta la famiglia';
     }
 }
 ?>

@@ -4,8 +4,8 @@ require_once __DIR__ . '/models/Movies.php';
 
 $arrayMovie = [
 
-    new Movie('Il silenzio degli innocenti', 'Horror', 120,'Alberto', 17 ),
-    new Movie('Matrix', 'Azione', 220 , 'Pippo',20),
+    new Movie('Il silenzio degli innocenti', 'Horror', 120, 17,new Author('Mario','Biondi', 46)),
+    new Movie('Matrix', 'Azione', 220, 20),
 
 ];
 
@@ -38,11 +38,11 @@ var_dump($arrayMovie)
         <tbody>
             <?php foreach ($arrayMovie as $movie) : ?>      
             <tr>        
-                <td><?php echo $movie->title?></td>
-                <td><?php echo $movie->category?></td>
-                <td><?php echo $movie->duration?></td>
-                <td><?php echo $movie->author?></td>
-                <td><?php echo $movie->minAge?></td>
+                <td><?php echo $movie->title ?></td>
+                <td><?php echo $movie->category ?></td>
+                <td><?php echo $movie->duration . ' min' ?></td>
+                <td><?php echo $movie->author?->name ?? 'Not Found'?></td>
+                <td><?php echo $movie->minAge ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
